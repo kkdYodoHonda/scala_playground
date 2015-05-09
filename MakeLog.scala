@@ -61,30 +61,6 @@ object LogLines {
 				outlooklist.println(line)
 		outlooklist.close
 	}
-
-	val li = List(logname, date, start)
-	ServerLoglines.processFile(li, "www32243ue.sakura.ne.jp", "49-212-221-17_")
-	ServerLoglines.processFile(li, "www21195ue.sakura.ne.jp", "49-212-186-209_")
-	ServerLoglines.processFile(li, "www17007ue.sakura.ne.jp", "49-212-172-21_")
-	ServerLoglines.processFile(li, "www7153ue.sakura.ne.jp", "49-212-138-167_")
-	ServerLoglines.processFile(li, "www8373ue.sakura.ne.jp", "49-212-141-147_")
-	ServerLoglines.processFile(li, "www34004ue.sakura.ne.jp", "49-212-230-18_")
-	ServerLoglines.processFile(li, "www33136ue.sakura.ne.jp", "49-212-222-150_")
-	ServerLoglines.processFile(li, "www9017ue.sakura.ne.jp", "49-212-142-31_")
-	ServerLoglines.processFile(li, "www19163ue.sakura.ne.jp", "49-212-178-177_")
-	ServerLoglines.processFile(li, "www31383ue.sakura.ne.jp", "49-212-217-157_")
-}
-
-object ServerLoglines {
-	def processFile(li: List[String], server: String, ip: String) {
-		val source = Source.fromFile(li(0))
-		val name = ip + li(1) + "_" + li(2) + ".log"
-		val serverlog = new PrintWriter(name)
-		for (line <- source.getLines())
-			if (line.contains(server))
-				serverlog.println(line)
-		serverlog.close
-	}
 }
 
 object MakeLog {
